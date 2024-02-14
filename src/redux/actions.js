@@ -5,6 +5,13 @@ export const addTodo = (data) => {
     }
 }
 
+export const toggleTodoStatus = (todoId) => {
+    return {
+        type: 'todoList/toggleTodoStatus',
+        payload: todoId
+    }
+}
+
 export const checkedTodo = (id) => {
     return {
         type: 'todoList/checked',
@@ -28,7 +35,7 @@ export const statusFilterChange = (status) => {
 
 export const priorityFilterChange = (priorities) => {
     return {
-        type: 'filter/priorityFilterChange',
+        type: 'filter/prioritiesFilterChange',
         payload: priorities
     }
 }

@@ -1,7 +1,7 @@
 import { Col, Row, Input, Button, Select, Tag } from 'antd';
 import Todo from '../Todo';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodo } from '../../redux/actions';
+import { addTodo } from './TodosSlice';
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import { searchTextSelector, todosRemainingSelector } from '../../redux/selectors';
@@ -27,7 +27,6 @@ export default function TodoList() {
   }
 
   const handleInputChange = (e) => {
-    console.log('handleInputChange', e.target.value)
     setTodoName(e.target.value)
   }
   const handlePriorityChange = (value) => {
@@ -36,7 +35,15 @@ export default function TodoList() {
   return (
     <Row style={{ height: 'calc(100% - 40px)' }}>
       <Col span={24} style={{ height: 'calc(100% - 40px)', overflowY: 'auto' }}>
-        {todoList.map(todo => <Todo key={todo.name} id={todo.id} name={todo.name} prioriry={todo.priority} completed={todo.completed} />)}
+        {todoList.map(todo => 
+          <Todo
+            key={todo.name}
+            id={todo.id}
+            name={todo.name}
+            prioriry={todo.priority}
+            completed={todo.completed}
+          />
+        )}
       </Col>
       <Col span={24}>
         <Input.Group style={{ display: 'flex' }} compact>

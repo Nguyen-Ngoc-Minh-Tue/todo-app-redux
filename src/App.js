@@ -24,8 +24,6 @@ function App() {
       <Filters />
       <Divider />
       <TodoList />
-
-      {/* 1:54:40 */}
     </div>
   );
 }
